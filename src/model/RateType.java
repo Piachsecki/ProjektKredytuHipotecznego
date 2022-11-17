@@ -1,2 +1,6 @@
-package model;public enum RateType {
+package model;
+
+public enum RateType {
+    CONSTANT,
+    DECREASING
 }
