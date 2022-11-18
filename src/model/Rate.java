@@ -10,6 +10,16 @@ public class Rate {
     //punkt w czasie
     private final TimePoint timePoint;
 
+    @Override
+    public String toString() {
+        return "Rate{" +
+                "rateNumber=" + rateNumber +
+                ", timePoint=" + timePoint +
+                ", rateAmounts=" + rateAmounts +
+                ", mortgageResidual=" + mortgageResidual +
+                '}';
+    }
+
     //kwoty jakie beda tej raty dotyczyly
     private final RateAmounts rateAmounts;
 

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20b61037-0613-4208-8f87-4da04ab1d610" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/MortgageResidual.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Rate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/RateAmounts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/TimePoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/MortgageCalculationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/MortgageCalculationServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/PrintingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/PrintingServiceImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/RateCalculationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/service/RateCalculationServiceImp.java" afterDir="false" />
+    <list default="true" id="20b61037-0613-4208-8f87-4da04ab1d610" name="Changes" comment="Projekt, czesc 1-sza i 2-ga">
+      <change afterPath="$PROJECT_DIR$/src/service/AmountsCalculateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/AmountsCalculateServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/ResidualCalculateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/ResidualCalculateServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/TimePointService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/service/TimePointServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/InputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/InputData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/RateType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RateType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/MortgageResidual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/MortgageResidual.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Rate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Rate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/RateAmounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RateAmounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/TimePoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TimePoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/MortgageCalculationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/MortgageCalculationServiceImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/RateCalculationServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/RateCalculationServiceImp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,14 +48,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/krpia/IdeaProjects/kredytHipotecznyBRUDNOPIS&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Language Defaults&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="service" />
       <recent name="model" />
       <recent name="modl" />
-      <recent name="service" />
     </key>
   </component>
   <component name="RunManager">
@@ -82,8 +83,17 @@
       <option name="presentableId" value="Default" />
       <updated>1668594751341</updated>
       <workItem from="1668594752619" duration="18791000" />
-      <workItem from="1668670399915" duration="618000" />
+      <workItem from="1668670399915" duration="16311000" />
+      <workItem from="1668772088275" duration="5186000" />
     </task>
+    <task id="LOCAL-00001" summary="Projekt, czesc 1-sza i 2-ga">
+      <created>1668671834608</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668671834608</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,5 +109,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Projekt, czesc 1-sza i 2-ga" />
+    <option name="LAST_COMMIT_MESSAGE" value="Projekt, czesc 1-sza i 2-ga" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="BigDecimal.ZERO.equals(rateNumber.remainder(YEAR)) ? YEAR :rateNumber.remainder(YEAR)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

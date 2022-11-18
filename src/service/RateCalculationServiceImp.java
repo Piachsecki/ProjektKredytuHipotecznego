@@ -1,20 +1,34 @@
 package service;
 
-import model.InputData;
-import model.Rate;
+import model.*;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
 public class RateCalculationServiceImp implements RateCalculationService{
+    private final TimePointService timePointService;
+
+    private final AmountsCalculateService amountsCalculateService;
+
+    private final ResidualCalculateService residualCalculateService;
+
+    public RateCalculationServiceImp(TimePointService timePointService,
+                                     AmountsCalculateService amountsCalculateService,
+                                     ResidualCalculateService residualCalculateService
+    ) {
+        this.timePointService = timePointService;
+        this.amountsCalculateService = amountsCalculateService;
+        this.residualCalculateService = residualCalculateService;
+    }
+
     @Override
     public List<Rate> calculate(InputData inputData) {
         List<Rate> rates = new LinkedList<>();
 
         BigDecimal rateNumber = BigDecimal.ONE;
 
-        Rate firstRate = calculateFirstRate(rateNumber, inputData);
+        Rate firstRate = calculateRate(rateNumber, inputData);
         rates.add(firstRate);
 
         Rate previousRate = firstRate;
@@ -24,7 +38,7 @@ public class RateCalculationServiceImp implements RateCalculationService{
                 index.compareTo(inputData.getMonthsDuration()) <= 0;
                 index = index.add(BigDecimal.ONE)
         ){
-            Rate nextRate = calculateNextRate(index, inputData, previousRate);
+            Rate nextRate = calculateRate(index, inputData, previousRate);
             rates.add(nextRate);
             previousRate = nextRate;
 
@@ -35,13 +49,23 @@ public class RateCalculationServiceImp implements RateCalculationService{
         return rates;
     }
 
-    private Rate calculateFirstRate(BigDecimal rateNumber, InputData inputData) {
-        return null;
+
+
+    private Rate calculateRate(BigDecimal rateNumber, InputData inputData) {
+        TimePoint timePoint = timePointService.calculate(rateNumber, inputData);
+        RateAmounts rateAmounts = amountsCalculateService.calculate(inputData);
+        MortgageResidual mortgageResidual = residualCalculateService.calculate(rateAmounts, inputData);
+        return new Rate(rateNumber, timePoint, rateAmounts, mortgageResidual);
     }
 
-    private Rate calculateNextRate(BigDecimal index, InputData inputData, Rate previousRate) {
-        return null;
+    private Rate calculateRate(BigDecimal rateNumber, InputData inputData, Rate previousRate) {
+        TimePoint timePoint = timePointService.calculate(rateNumber, inputData);
+        RateAmounts rateAmounts = amountsCalculateService.calculate(inputData, previousRate);
+        MortgageResidual mortgageResidual = residualCalculateService.calculate(rateAmounts, previousRate);
+        return new Rate(rateNumber, timePoint, rateAmounts, mortgageResidual);
     }
+
+
 
 
 }

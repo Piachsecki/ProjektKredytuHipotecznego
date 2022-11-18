@@ -10,6 +10,15 @@ public class TimePoint {
 
     private final BigDecimal month;
 
+    @Override
+    public String toString() {
+        return "TimePoint{" +
+                "date=" + date +
+                ", year=" + year +
+                ", month=" + month +
+                '}';
+    }
+
     public LocalDate getDate() {
         return date;
     }

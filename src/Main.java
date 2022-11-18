@@ -10,12 +10,18 @@ public class Main {
                 .withMonthsDuration(BigDecimal.valueOf(100));
 
         PrintingService printingService = new PrintingServiceImp();
-        RateCalculationService rateCalculationService = new RateCalculationServiceImp();
+        RateCalculationService rateCalculationService = new RateCalculationServiceImp(
+                new TimePointServiceImpl(),
+                new AmountsCalculateServiceImpl(),
+                new ResidualCalculateServiceImpl()
+        );
         MortgageCalculationService mortgageCalculationService = new MortgageCalculationServiceImp(
                 printingService,
                 rateCalculationService
         );
         mortgageCalculationService.calculate(inputData);
     }
+
+
 
 }
