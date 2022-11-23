@@ -44,8 +44,6 @@ public class RateCalculationServiceImp implements RateCalculationService{
 
         }
 
-
-
         return rates;
     }
 

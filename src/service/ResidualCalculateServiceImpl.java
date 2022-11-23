@@ -15,7 +15,7 @@ public class ResidualCalculateServiceImpl implements ResidualCalculateService{
     @Override
     public MortgageResidual calculate(RateAmounts rateAmounts, InputData inputData) {
         BigDecimal residualAmount = inputData.getAmount().subtract(rateAmounts.getCapitalAmount()) ;
-        BigDecimal residualDuration = inputData.getMonthsDuration().subtract(BigDecimal.ONE);
+        BigDecimal residualDuration = inputData.getMonthsDuration().subtract(BigDecimal.ONE).max(BigDecimal.ZERO);
         return new MortgageResidual(residualAmount, residualDuration);
     }
 
